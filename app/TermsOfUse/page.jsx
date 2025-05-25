@@ -1,26 +1,6 @@
-"use client";
 import { ReceiptText , Minus } from "lucide-react";
-import FixedSidebar from "../components/Fixed-Sidebar/FixedSidebar";
-// import Accordion from "../components/Accordion/Accordion";
-
+import FixedSidebar from "@/components/Fixed-Sidebar/FixedSidebar.jsx";
 export default function TermsOfUse(){
-    const data = [
-        {
-            id:1,
-            title: "شرایط فنی",
-            text: "اگر میخوای برنامه‌نویسی بکنی یا پروژه واقعی روی AI بسازی؛ نیاز به دانش فنی پایه داری (مثلاً Python، کار با APIها، مدل‌های یادگیری ماشین)؛ منابع سخت‌افزاری قوی (مثل GPU) ممکنه لازم باشه اگر خودت میخوای مدل بسازی یا آموزش بدی؛ اگر صرفاً مصرف‌کننده هستی (مثلاً متن تولید می‌کنی یا تصویر خلق می‌کنی)، نیاز خاصی نیست؛ فقط ابزار رو باید بلد باشی چطور استفاده کنی."
-        },
-        {
-            id:2,
-            title: "شرایط قانونی و اخلاقی",
-            text: "باید حواست باشه که کجا و چطور از AI استفاده می‌کنی؛ احترام به حقوق کپی‌رایت؛ عدم تولید محتوای مضر یا گمراه‌کننده؛ در بعضی کشورها قوانین سختگیرانه‌ای برای محافظت از داده‌های شخصی (مثل GDPR در اروپا) وجود داره."
-        },
-        {
-            id:3,
-            title: "بعضی محدودیت‌ها",
-            text: ""
-        }
-    ]
     return(
         <>
         <FixedSidebar/>
@@ -34,11 +14,6 @@ export default function TermsOfUse(){
             <p className="text-xl opacity-80 px-16">
             اگر اینترنت + حساب کاربری داشته باشی و قوانین و شرایط استقاده هم بپذیری؛ از  هوشیار میتونی استفاده کنی. برای کارهای حرفه‌ای‌تر باید دانش فنی هم داشته باشی.
             </p>
-            {/* {
-                data.map( item => (
-                    <Accordion key={item.id} {...item} />
-                ) )
-            } */}
             <div className="flex px-12 flex-col gap-y-4">
                 <div className="flex p-2 flex-col gap-y-4">
                     <h2 className="text-xl flex gap-x-1 items-center"><Minus /> شرایط فنی</h2>
