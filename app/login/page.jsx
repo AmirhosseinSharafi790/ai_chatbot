@@ -1,7 +1,8 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation"; 
 import { signup, signin } from '../../backend/api.js';
+import { toast } from "react-toastify";
 export default function Login() {
   const [isLogin, setIsLogin] = useState(true);
   const [name, setName] = useState("");
@@ -15,14 +16,20 @@ export default function Login() {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
   }
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      router.push("/chat");
+    }
+  }, []);
 
   const login = async () => {
     if (!isValidEmail(email)) {
-      alert("ایمیل معتبر نیست ❌");
+      toast.error("ایمیل معتبر نیست")
       return;
     }
     if (password.length < 8) {
-      alert("رمز عبور باید حداقل ۸ کاراکتر باشد ❗");
+      toast.error("رمز عبور باید حداقل ۸ کاراکتر باشد")
       return;
     }
 
@@ -58,7 +65,6 @@ export default function Login() {
         <h2 className="text-2xl font-bold mb-6 text-center">
           {isLogin ? "ورود به حساب" : "ایجاد حساب کاربری"}
         </h2>
-
         <form className="flex flex-col gap-4">
           {!isLogin && (
             <input
@@ -90,7 +96,7 @@ export default function Login() {
           >
             {isLoading ? (
               <>
-                <svg
+                {/* <svg
                   className="animate-spin h-5 w-5 text-white"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -109,7 +115,8 @@ export default function Login() {
                     fill="currentColor"
                     d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                   ></path>
-                </svg>
+                </svg> */}
+                amir
                 {isLogin ? "در حال ورود..." : "در حال ثبت نام..."}
               </>
             ) : (
