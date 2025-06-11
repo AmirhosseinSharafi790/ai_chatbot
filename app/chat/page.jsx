@@ -215,7 +215,6 @@ export default function Home() {
         <div className="font-bold flex items-center justify-between p-4">
           <div className="flex flex-col items-center gap-x-2">
             <button className="flex text-white text-lg" onClick={toggleSidebar}>
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
               <Image src={logo} alt="logo" />
             </button>
           </div>
